@@ -4,7 +4,7 @@ const majorGroup = document.getElementById("majorGroup");
 const courseSelect = document.getElementById("course");
 const recordsBody = document.getElementById("recordsBody");
 
-// Text fields: label, whether required, and minimum length
+
 const textRules = {
   studentId:  { label: "Student ID",  required: true,  min: 5 },
   prefix:     { label: "Prefix",      required: false, min: 2 },
@@ -20,7 +20,7 @@ function getValue(id) {
   return document.getElementById(id).value.trim();
 }
 
-// Returns an error message, or "" when the field is valid
+
 function validateField(id) {
   const value = getValue(id);
 
@@ -56,7 +56,7 @@ function clearError(id) {
   showError(id, "");
 }
 
-// Show the major dropdown only for BSIT
+
 function updateMajorVisibility() {
   const isBSIT = courseSelect.value === "BSIT";
   majorGroup.hidden = !isBSIT;
@@ -84,7 +84,7 @@ function addRecordRow(data) {
   recordsBody.appendChild(row);
 }
 
-// Clear the error for a field as soon as the user edits it
+
 form.addEventListener("input", function (e) {
   if (e.target.id) clearError(e.target.id);
   successMessage.hidden = true;
