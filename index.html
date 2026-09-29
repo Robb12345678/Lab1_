@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Enrollment System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Student Enrollment System</h1>
+      <p>Fill in your details to enroll for the coming term.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">Enrollment form</h2>
+      <p class="hint">Fields marked * are required.</p>
+
+      <div id="successMessage" class="success" role="status" hidden></div>
+
+      <form id="enrollmentForm" novalidate>
+        <div class="field">
+          <label for="studentId">Student ID *</label>
+          <input type="text" id="studentId" name="studentId" autocomplete="off">
+          <span class="error" id="studentId-error"></span>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="prefix">Prefix (optional)</label>
+            <input type="text" id="prefix" name="prefix" placeholder="e.g. Mr.">
+            <span class="error" id="prefix-error"></span>
+          </div>
+          <div class="field">
+            <label for="firstName">First name *</label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name">
+            <span class="error" id="firstName-error"></span>
+          </div>
+          <div class="field">
+            <label for="middleName">Middle name (optional)</label>
+            <input type="text" id="middleName" name="middleName" autocomplete="additional-name">
+            <span class="error" id="middleName-error"></span>
+          </div>
+          <div class="field">
+            <label for="lastName">Last name *</label>
+            <input type="text" id="lastName" name="lastName" autocomplete="family-name">
+            <span class="error" id="lastName-error"></span>
+          </div>
+          <div class="field">
+            <label for="suffix">Suffix (optional)</label>
+            <input type="text" id="suffix" name="suffix" placeholder="e.g. Jr.">
+            <span class="error" id="suffix-error"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <span class="error" id="email-error"></span>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="course">Course *</label>
+            <select id="course" name="course">
+              <option value="">Select a course</option>
+              <option value="BSIT">BSIT</option>
+              <option value="BSCS">BSCS</option>
+              <option value="BMMA">BMMA</option>
+              <option value="BSAIS">BSAIS</option>
+            </select>
+            <span class="error" id="course-error"></span>
+          </div>
+
+          <div class="field" id="majorGroup" hidden>
+            <label for="major">Major (BSIT) *</label>
+            <select id="major" name="major">
+              <option value="">Select a major</option>
+              <option value="Net Sec">Net Sec</option>
+              <option value="Web Tech">Web Tech</option>
+              <option value="ERP">ERP</option>
+            </select>
+            <span class="error" id="major-error"></span>
+          </div>
+
+          <div class="field">
+            <label for="year">Year level *</label>
+            <select id="year" name="year">
+              <option value="">Select a year level</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+            </select>
+            <span class="error" id="year-error"></span>
+          </div>
+        </div>
+
+        <button type="submit">Submit enrollment</button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="records-title">
+      <h2 id="records-title">Submitted enrollments</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Student ID</th>
+              <th scope="col">Full name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Course</th>
+              <th scope="col">Major</th>
+              <th scope="col">Year level</th>
+            </tr>
+          </thead>
+          <tbody id="recordsBody">
+            <tr id="emptyRow">
+              <td colspan="6" class="empty">No enrollments yet. Submit the form above to add one.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
